@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useCallback } from "react";
 
@@ -49,10 +49,10 @@ const INITIAL_QUOTES: QuoteRequest[] = [
 // ─── Quote Card ────────────────────────────────────────────────────────────────
 function QuoteCard({ quote }: { quote: QuoteRequest }) {
   return (
-    <article className="bg-[--color-surface] rounded-xl p-6 border border-[--color-outline-variant]/30 shadow-[0_4px_20px_rgba(0,52,65,0.05)] flex flex-col md:flex-row md:items-center justify-between gap-3 hover:shadow-[0_12px_40px_rgba(0,52,65,0.10)] transition-shadow duration-300 relative overflow-hidden group">
+    <article className="bg-surface rounded-xl p-6 border border-outline-variant/30 shadow-[0_4px_20px_rgba(0,52,65,0.05)] flex flex-col md:flex-row md:items-center justify-between gap-3 hover:shadow-[0_12px_40px_rgba(0,52,65,0.10)] transition-shadow duration-300 relative overflow-hidden group">
       {/* Accent bar */}
       <div
-        className={`absolute left-0 top-0 bottom-0 w-1.5 bg-[--color-secondary] transition-opacity duration-300 ${
+        className={`absolute left-0 top-0 bottom-0 w-1.5 bg-secondary transition-opacity duration-300 ${
           quote.isPrimary ? "opacity-100" : "opacity-0 group-hover:opacity-100"
         }`}
       />
@@ -63,12 +63,12 @@ function QuoteCard({ quote }: { quote: QuoteRequest }) {
           {quote.features.map((f) => (
             <span
               key={f}
-              className="px-3 py-1 rounded-full bg-[--color-primary]/10 text-[--color-primary] text-xs font-semibold shadow-sm"
+              className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold shadow-sm"
             >
               {f}
             </span>
           ))}
-          <span className="px-3 py-1 rounded-full bg-[--color-surface-variant] text-[--color-on-surface-variant] text-xs font-semibold flex items-center gap-1 shadow-sm">
+          <span className="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant text-xs font-semibold flex items-center gap-1 shadow-sm">
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>
               route
             </span>
@@ -76,11 +76,11 @@ function QuoteCard({ quote }: { quote: QuoteRequest }) {
           </span>
         </div>
 
-        <h3 className="text-lg font-semibold leading-7 text-[--color-on-surface] mb-1">
+        <h3 className="text-lg font-semibold leading-7 text-on-surface mb-1">
           {quote.title}
         </h3>
 
-        <p className="text-xs leading-4 text-[--color-on-surface-variant] mb-3 flex items-center gap-1">
+        <p className="text-xs leading-4 text-on-surface-variant mb-3 flex items-center gap-1">
           <span className="material-symbols-outlined" style={{ fontSize: 14 }}>
             schedule
           </span>
@@ -88,10 +88,10 @@ function QuoteCard({ quote }: { quote: QuoteRequest }) {
         </p>
 
         <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold leading-5 text-[--color-on-surface-variant]">
+          <span className="text-sm font-semibold leading-5 text-on-surface-variant">
             Est. Quote:
           </span>
-          <span className="text-2xl font-bold leading-8 text-[--color-secondary] tracking-tight">
+          <span className="text-2xl font-bold leading-8 text-secondary tracking-tight">
             ₺{quote.estimatedPrice.toLocaleString("tr-TR")}
           </span>
         </div>
@@ -100,14 +100,14 @@ function QuoteCard({ quote }: { quote: QuoteRequest }) {
       {/* CTA */}
       <div className="w-full md:w-auto md:min-w-[200px] flex md:justify-end mt-2 md:mt-0">
         {quote.isPrimary ? (
-          <button className="w-full md:w-auto bg-[--color-primary] text-[--color-on-primary] text-sm font-semibold h-12 rounded-full px-6 hover:opacity-90 active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2">
+          <button className="w-full md:w-auto bg-primary text-on-primary text-sm font-semibold h-12 rounded-full px-6 hover:opacity-90 active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2">
             <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
               call
             </span>
             İletişime Geç
           </button>
         ) : (
-          <button className="w-full md:w-auto bg-transparent border border-[--color-primary] text-[--color-primary] text-sm font-semibold h-12 rounded-full px-6 hover:bg-[--color-primary]/5 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+          <button className="w-full md:w-auto bg-transparent border border-primary text-primary text-sm font-semibold h-12 rounded-full px-6 hover:bg-primary/5 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
             <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
               chat
             </span>
@@ -180,13 +180,13 @@ export default function CompanyPage() {
   >("dashboard");
 
   return (
-    <div className="bg-[--color-background] text-[--color-on-background] min-h-screen pb-24 font-[--font-inter] antialiased md:bg-[--color-surface-container-low]">
+    <div className="bg-background text-on-background min-h-screen pb-24 font-inter antialiased md:bg-surface-container-low">
       {/* ── TopAppBar ──────────────────────────────────────────────────────── */}
-      <header className="w-full top-0 sticky bg-[--color-surface] shadow-[0_2px_8px_rgba(0,52,65,0.03)] md:shadow-[0_4px_20px_rgba(0,52,65,0.05)] z-40 transition-shadow duration-300">
+      <header className="w-full top-0 sticky bg-surface shadow-[0_2px_8px_rgba(0,52,65,0.03)] md:shadow-[0_4px_20px_rgba(0,52,65,0.05)] z-40 transition-shadow duration-300">
         <div className="flex justify-between items-center px-4 py-2 w-full max-w-[1280px] mx-auto md:px-6">
           <div className="flex items-center gap-2">
             <span
-              className="material-symbols-outlined text-[--color-primary]"
+              className="material-symbols-outlined text-primary"
               style={{
                 fontVariationSettings: "'FILL' 1",
                 fontSize: 28,
@@ -195,7 +195,7 @@ export default function CompanyPage() {
               location_on
             </span>
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-[--color-primary] truncate max-w-[200px] md:max-w-none">
+              <h1 className="text-2xl md:text-3xl font-bold text-primary truncate max-w-[200px] md:max-w-none">
                 Elite Pergola Design
               </h1>
               <div className="flex items-center gap-1 mt-0.5">
@@ -217,12 +217,12 @@ export default function CompanyPage() {
 
           <button
             aria-label="Profil"
-            className="w-10 h-10 rounded-full overflow-hidden border border-[--color-outline-variant] bg-[--color-surface-variant] flex-shrink-0 active:scale-95 transition-transform hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[--color-primary] focus:ring-offset-2"
+            className="w-10 h-10 rounded-full overflow-hidden border border-outline-variant bg-surface-variant flex-shrink-0 active:scale-95 transition-transform hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             {/* Placeholder avatar */}
-            <div className="w-full h-full bg-[--color-primary-container] flex items-center justify-center">
+            <div className="w-full h-full bg-primary-container flex items-center justify-center">
               <span
-                className="material-symbols-outlined text-[--color-on-primary-container]"
+                className="material-symbols-outlined text-on-primary-container"
                 style={{ fontSize: 20 }}
               >
                 person
@@ -233,7 +233,7 @@ export default function CompanyPage() {
       </header>
 
       {/* ── Desktop Side Nav ───────────────────────────────────────────────── */}
-      <div className="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 w-16 bg-[--color-surface] flex-col items-center py-6 gap-8 shadow-[0_4px_20px_rgba(0,52,65,0.05)] rounded-r-xl border border-l-0 border-[--color-outline-variant]/30 z-50">
+      <div className="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 w-16 bg-surface flex-col items-center py-6 gap-8 shadow-[0_4px_20px_rgba(0,52,65,0.05)] rounded-r-xl border border-l-0 border-outline-variant/30 z-50">
         {(
           [
             { tab: "dashboard", icon: "dashboard", label: "Dashboard" },
@@ -246,8 +246,8 @@ export default function CompanyPage() {
             onClick={() => setActiveTab(tab)}
             className={`w-10 h-10 flex items-center justify-center rounded-full transition-all group relative ${
               activeTab === tab
-                ? "bg-[--color-secondary-container] text-[--color-on-secondary-container] shadow-md"
-                : "text-[--color-on-surface-variant] hover:bg-[--color-surface-variant]"
+                ? "bg-secondary-container text-on-secondary-container shadow-md"
+                : "text-on-surface-variant hover:bg-surface-variant"
             }`}
             aria-label={label}
           >
@@ -260,7 +260,7 @@ export default function CompanyPage() {
             >
               {icon}
             </span>
-            <span className="absolute left-14 bg-[--color-surface] px-2 py-1 rounded shadow-md text-[--color-primary] text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-[--color-outline-variant]/20">
+            <span className="absolute left-14 bg-surface px-2 py-1 rounded shadow-md text-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-outline-variant/20">
               {label}
             </span>
           </button>
@@ -273,15 +273,15 @@ export default function CompanyPage() {
           {/* ── Left Column ──────────────────────────────────────────────── */}
           <div className="md:col-span-5 lg:col-span-4 flex flex-col gap-3 md:gap-8">
             {/* Pricing Rules Card */}
-            <section className="bg-[--color-surface] rounded-xl shadow-[0_4px_20px_rgba(0,52,65,0.05)] p-6 border border-[--color-outline-variant]/30">
+            <section className="bg-surface rounded-xl shadow-[0_4px_20px_rgba(0,52,65,0.05)] p-6 border border-outline-variant/30">
               <div className="flex items-center gap-2 mb-3">
                 <span
-                  className="material-symbols-outlined text-[--color-secondary]"
+                  className="material-symbols-outlined text-secondary"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   calculate
                 </span>
-                <h2 className="text-2xl font-semibold leading-8 text-[--color-primary]">
+                <h2 className="text-2xl font-semibold leading-8 text-primary">
                   Otomatik Fiyat Motoru
                 </h2>
               </div>
@@ -291,7 +291,7 @@ export default function CompanyPage() {
                 <div className="flex flex-col">
                   <label
                     htmlFor="basePrice"
-                    className="text-sm font-semibold leading-5 text-[--color-on-surface-variant] mb-1"
+                    className="text-sm font-semibold leading-5 text-on-surface-variant mb-1"
                   >
                     Base Price per m² (₺/m²)
                   </label>
@@ -301,7 +301,7 @@ export default function CompanyPage() {
                     min={0}
                     value={pricing.basePrice}
                     onChange={handlePricingChange("basePrice")}
-                    className="w-full border border-slate-200 rounded-xl bg-white h-12 px-4 focus:ring-2 focus:ring-[--color-primary] focus:border-[--color-primary] transition-all text-[--color-on-surface] shadow-sm outline-none"
+                    className="w-full border border-slate-200 rounded-xl bg-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-on-surface shadow-sm outline-none"
                   />
                 </div>
 
@@ -309,7 +309,7 @@ export default function CompanyPage() {
                 <div className="flex flex-col">
                   <label
                     htmlFor="motorizedExtra"
-                    className="text-sm font-semibold leading-5 text-[--color-on-surface-variant] mb-1"
+                    className="text-sm font-semibold leading-5 text-on-surface-variant mb-1"
                   >
                     Motorized Roof Extra (₺)
                   </label>
@@ -319,7 +319,7 @@ export default function CompanyPage() {
                     min={0}
                     value={pricing.motorizedExtra}
                     onChange={handlePricingChange("motorizedExtra")}
-                    className="w-full border border-slate-200 rounded-xl bg-white h-12 px-4 focus:ring-2 focus:ring-[--color-primary] focus:border-[--color-primary] transition-all text-[--color-on-surface] shadow-sm outline-none"
+                    className="w-full border border-slate-200 rounded-xl bg-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-on-surface shadow-sm outline-none"
                   />
                 </div>
 
@@ -327,7 +327,7 @@ export default function CompanyPage() {
                 <div className="flex flex-col">
                   <label
                     htmlFor="ledExtra"
-                    className="text-sm font-semibold leading-5 text-[--color-on-surface-variant] mb-1"
+                    className="text-sm font-semibold leading-5 text-on-surface-variant mb-1"
                   >
                     LED Lighting Extra (₺)
                   </label>
@@ -337,7 +337,7 @@ export default function CompanyPage() {
                     min={0}
                     value={pricing.ledExtra}
                     onChange={handlePricingChange("ledExtra")}
-                    className="w-full border border-slate-200 rounded-xl bg-white h-12 px-4 focus:ring-2 focus:ring-[--color-primary] focus:border-[--color-primary] transition-all text-[--color-on-surface] shadow-sm outline-none"
+                    className="w-full border border-slate-200 rounded-xl bg-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-on-surface shadow-sm outline-none"
                   />
                 </div>
 
@@ -345,7 +345,7 @@ export default function CompanyPage() {
                 <div className="flex flex-col">
                   <label
                     htmlFor="glassExtra"
-                    className="text-sm font-semibold leading-5 text-[--color-on-surface-variant] mb-1"
+                    className="text-sm font-semibold leading-5 text-on-surface-variant mb-1"
                   >
                     Glass/Zip Extra (₺)
                   </label>
@@ -355,7 +355,7 @@ export default function CompanyPage() {
                     min={0}
                     value={pricing.glassExtra}
                     onChange={handlePricingChange("glassExtra")}
-                    className="w-full border border-slate-200 rounded-xl bg-white h-12 px-4 focus:ring-2 focus:ring-[--color-primary] focus:border-[--color-primary] transition-all text-[--color-on-surface] shadow-sm outline-none"
+                    className="w-full border border-slate-200 rounded-xl bg-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-on-surface shadow-sm outline-none"
                   />
                 </div>
 
@@ -364,11 +364,11 @@ export default function CompanyPage() {
                   <div className="flex justify-between mb-2">
                     <label
                       htmlFor="distanceSlider"
-                      className="text-sm font-semibold leading-5 text-[--color-on-surface-variant]"
+                      className="text-sm font-semibold leading-5 text-on-surface-variant"
                     >
                       Max Service Distance
                     </label>
-                    <span className="text-sm font-semibold leading-5 text-[--color-primary] bg-[--color-surface-container-low] px-2 py-0.5 rounded-full tabular-nums">
+                    <span className="text-sm font-semibold leading-5 text-primary bg-surface-container-low px-2 py-0.5 rounded-full tabular-nums">
                       {pricing.maxDistanceKm} km
                     </span>
                   </div>
@@ -380,7 +380,7 @@ export default function CompanyPage() {
                     step={5}
                     value={pricing.maxDistanceKm}
                     onChange={handlePricingChange("maxDistanceKm")}
-                    className="w-full h-2 bg-[--color-surface-variant] rounded-full appearance-none cursor-pointer"
+                    className="w-full h-2 bg-surface-variant rounded-full appearance-none cursor-pointer"
                   />
                 </div>
 
@@ -388,7 +388,7 @@ export default function CompanyPage() {
                 <button
                   type="button"
                   onClick={handleUpdatePricing}
-                  className="w-full bg-[--color-secondary] text-[--color-on-secondary] text-sm font-semibold h-12 rounded-full mt-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-md"
+                  className="w-full bg-secondary text-on-secondary text-sm font-semibold h-12 rounded-full mt-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-md"
                 >
                   Update Pricing Rules / Fiyatları Güncelle
                 </button>
@@ -396,7 +396,7 @@ export default function CompanyPage() {
             </section>
 
             {/* Location Card */}
-            <section className="bg-[--color-surface] rounded-xl shadow-[0_4px_20px_rgba(0,52,65,0.05)] p-6 border border-[--color-outline-variant]/30 relative overflow-hidden">
+            <section className="bg-surface rounded-xl shadow-[0_4px_20px_rgba(0,52,65,0.05)] p-6 border border-outline-variant/30 relative overflow-hidden">
               {/* Dot-grid bg */}
               <div
                 aria-hidden="true"
@@ -409,7 +409,7 @@ export default function CompanyPage() {
               />
 
               <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-full bg-[--color-surface-container-high] flex items-center justify-center mb-3 text-[--color-primary]">
+                <div className="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mb-3 text-primary">
                   <span
                     className="material-symbols-outlined"
                     style={{
@@ -421,16 +421,16 @@ export default function CompanyPage() {
                   </span>
                 </div>
 
-                <h3 className="text-sm font-semibold leading-5 text-[--color-on-surface-variant] mb-1">
+                <h3 className="text-sm font-semibold leading-5 text-on-surface-variant mb-1">
                   Current Service Origin
                 </h3>
 
-                <p className="font-mono text-[--color-primary] bg-[--color-surface-container] px-3 py-1 rounded-lg mb-3 shadow-sm border border-[--color-outline-variant]/20 text-sm tabular-nums">
+                <p className="font-mono text-primary bg-surface-container px-3 py-1 rounded-lg mb-3 shadow-sm border border-outline-variant/20 text-sm tabular-nums">
                   {coords.lat.toFixed(4)}° N, {coords.lon.toFixed(4)}° E
                 </p>
 
                 {locationStatus === "denied" && (
-                  <p className="text-xs text-[--color-error] mb-2">
+                  <p className="text-xs text-error mb-2">
                     Konum izni reddedildi — lütfen tarayıcı izinlerini kontrol
                     et.
                   </p>
@@ -439,7 +439,7 @@ export default function CompanyPage() {
                 <button
                   onClick={handlePickLocation}
                   disabled={locationStatus === "loading"}
-                  className="w-full bg-transparent border-2 border-[--color-primary] text-[--color-primary] text-sm font-semibold h-12 rounded-full hover:bg-[--color-primary]/5 active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="w-full bg-transparent border-2 border-primary text-primary text-sm font-semibold h-12 rounded-full hover:bg-primary/5 active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-60"
                 >
                   <span
                     className="material-symbols-outlined"
@@ -464,17 +464,17 @@ export default function CompanyPage() {
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span
-                    className="material-symbols-outlined text-[--color-primary]"
+                    className="material-symbols-outlined text-primary"
                     style={{ fontVariationSettings: "'FILL' 1" }}
                   >
                     forum
                   </span>
-                  <h2 className="text-2xl font-semibold leading-8 text-[--color-primary]">
+                  <h2 className="text-2xl font-semibold leading-8 text-primary">
                     Gelen Talepler
                   </h2>
                 </div>
                 {newCount > 0 && (
-                  <span className="bg-[--color-error] text-[--color-on-error] text-xs font-semibold px-2 py-0.5 rounded-full">
+                  <span className="bg-error text-on-error text-xs font-semibold px-2 py-0.5 rounded-full">
                     {newCount} New
                   </span>
                 )}
@@ -486,14 +486,14 @@ export default function CompanyPage() {
               ))}
 
               {/* Empty state */}
-              <div className="w-full py-8 flex flex-col items-center justify-center opacity-50 mt-4 border-2 border-dashed border-[--color-outline-variant] rounded-xl bg-[--color-surface-container-low]/50">
+              <div className="w-full py-8 flex flex-col items-center justify-center opacity-50 mt-4 border-2 border-dashed border-outline-variant rounded-xl bg-surface-container-low/50">
                 <span
-                  className="material-symbols-outlined mb-2 text-[--color-outline]"
+                  className="material-symbols-outlined mb-2 text-outline"
                   style={{ fontSize: 32 }}
                 >
                   inbox
                 </span>
-                <p className="text-sm font-semibold leading-5 text-[--color-outline]">
+                <p className="text-sm font-semibold leading-5 text-outline">
                   No more incoming requests
                 </p>
               </div>
@@ -503,7 +503,7 @@ export default function CompanyPage() {
       </main>
 
       {/* ── Mobile Bottom Nav ─────────────────────────────────────────────── */}
-      <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-[--color-surface] shadow-[0_-4px_20px_rgba(0,52,65,0.05)] md:hidden rounded-t-2xl">
+      <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface shadow-[0_-4px_20px_rgba(0,52,65,0.05)] md:hidden rounded-t-2xl">
         {(
           [
             { tab: "dashboard", icon: "dashboard", label: "Dashboard" },
@@ -516,8 +516,8 @@ export default function CompanyPage() {
             onClick={() => setActiveTab(tab)}
             className={`flex flex-col items-center justify-center transition-all duration-200 active:scale-95 px-4 py-1.5 rounded-full ${
               activeTab === tab
-                ? "bg-[--color-secondary-container] text-[--color-on-secondary-container]"
-                : "text-[--color-on-surface-variant] hover:text-[--color-primary]"
+                ? "bg-secondary-container text-on-secondary-container"
+                : "text-on-surface-variant hover:text-primary"
             }`}
           >
             <span

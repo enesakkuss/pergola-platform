@@ -6,9 +6,5 @@ export const metadata = {
 };
 
 export default function CompanyLayout({ children }: { children: ReactNode }) {
-  return (
-    <section className="min-h-screen bg-white">
-      {children}
-    </section>
-  );
+  return <>{children}</>;
 }

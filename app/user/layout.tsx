@@ -6,9 +6,5 @@ export const metadata = {
 };
 
 export default function UserLayout({ children }: { children: ReactNode }) {
-  return (
-    <section className="min-h-screen bg-gray-50">
-      {children}
-    </section>
-  );
+  return <>{children}</>;
 }

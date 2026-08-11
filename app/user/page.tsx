@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useCallback } from "react";
 import { haversineDistance, getUserCoordinates } from "@/lib/distance";
@@ -74,13 +74,13 @@ function OfferCard({
     : offer.distanceKm;
 
   return (
-    <article className="bg-[--color-surface-container-lowest] rounded-xl p-4 shadow-[0_4px_20px_rgba(0,52,65,0.05)] border border-[--color-outline-variant]/20 flex flex-col gap-3">
+    <article className="bg-surface-container-lowest rounded-xl p-4 shadow-[0_4px_20px_rgba(0,52,65,0.05)] border border-outline-variant/20 flex flex-col gap-3">
       <div className="flex justify-between items-start">
         <div>
-          <h4 className="text-lg font-semibold leading-7 text-[--color-on-surface]">
+          <h4 className="text-lg font-semibold leading-7 text-on-surface">
             {offer.name}
           </h4>
-          <div className="flex items-center gap-1 mt-1 text-[--color-on-surface-variant] text-xs leading-4">
+          <div className="flex items-center gap-1 mt-1 text-on-surface-variant text-xs leading-4">
             <StarIcon className="text-base text-[#FBBF24]" />
             <span className="font-semibold text-sm text-[#FBBF24]">
               {offer.rating}
@@ -94,7 +94,7 @@ function OfferCard({
           </div>
         </div>
         <div className="text-right">
-          <span className="block text-2xl font-semibold leading-8 text-[--color-primary]">
+          <span className="block text-2xl font-semibold leading-8 text-primary">
             ₺{offer.price.toLocaleString("tr-TR")}
           </span>
         </div>
@@ -104,14 +104,14 @@ function OfferCard({
         {offer.features.map((f) => (
           <span
             key={f}
-            className="px-2 py-1 bg-[--color-primary]/10 text-[--color-primary] rounded-full text-xs leading-4"
+            className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs leading-4"
           >
             {f}
           </span>
         ))}
       </div>
 
-      <button className="w-full h-10 mt-2 border border-[--color-primary] text-[--color-primary] text-sm font-semibold leading-5 rounded-2xl hover:bg-[--color-primary]/5 active:scale-[0.98] transition-all">
+      <button className="w-full h-10 mt-2 border border-primary text-primary text-sm font-semibold leading-5 rounded-2xl hover:bg-primary/5 active:scale-[0.98] transition-all">
         Get Quote / Teklif Al
       </button>
     </article>
@@ -164,24 +164,24 @@ export default function UserPage() {
   }, []);
 
   return (
-    <div className="bg-[--color-surface] font-[--font-inter] text-[--color-on-surface] pb-[100px]">
+    <div className="bg-surface font-inter text-on-surface pb-[100px]">
       {/* ── TopAppBar ────────────────────────────────────────────────────── */}
-      <header className="w-full top-0 sticky shadow-sm bg-[--color-surface] z-40">
+      <header className="w-full top-0 sticky shadow-sm bg-surface z-40">
         <div className="flex justify-between items-center px-4 py-2 w-full max-w-[1280px] mx-auto">
           <button
             aria-label="Konum"
-            className="text-[--color-primary] hover:opacity-90 active:scale-95 transition-transform"
+            className="text-primary hover:opacity-90 active:scale-95 transition-transform"
           >
             <span className="material-symbols-outlined text-2xl">
               location_on
             </span>
           </button>
-          <h1 className="text-3xl font-bold tracking-tight text-[--color-primary]">
+          <h1 className="text-3xl font-bold tracking-tight text-primary">
             PergolaPazarı
           </h1>
           <button
             aria-label="Hesap"
-            className="text-[--color-primary] hover:opacity-90 active:scale-95 transition-transform"
+            className="text-primary hover:opacity-90 active:scale-95 transition-transform"
           >
             <span className="material-symbols-outlined text-2xl">
               account_circle
@@ -193,13 +193,13 @@ export default function UserPage() {
       {/* ── Main ─────────────────────────────────────────────────────────── */}
       <main className="px-4 pt-8 pb-8 max-w-[1280px] mx-auto space-y-8">
         {/* Search Card */}
-        <section className="bg-[--color-surface-container-lowest] rounded-xl p-6 shadow-[0_4px_20px_rgba(0,52,65,0.05)] border border-[--color-outline-variant]/30 relative overflow-hidden">
+        <section className="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(0,52,65,0.05)] border border-outline-variant/30 relative overflow-hidden">
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[--color-primary]/5 pointer-events-none rounded-xl"
+            className="absolute inset-0 bg-primary/5 pointer-events-none rounded-xl"
           />
 
-          <h2 className="text-2xl font-semibold leading-8 text-[--color-primary] mb-3 relative z-10">
+          <h2 className="text-2xl font-semibold leading-8 text-primary mb-3 relative z-10">
             Find Your Perfect Pergola
           </h2>
 
@@ -209,7 +209,7 @@ export default function UserPage() {
               <div className="flex-1 space-y-1">
                 <label
                   htmlFor="width"
-                  className="text-sm font-semibold leading-5 text-[--color-on-surface-variant]"
+                  className="text-sm font-semibold leading-5 text-on-surface-variant"
                 >
                   Width / En (m)
                 </label>
@@ -220,13 +220,13 @@ export default function UserPage() {
                   step={0.5}
                   value={width}
                   onChange={(e) => setWidth(e.target.value)}
-                  className="w-full h-12 px-4 rounded-2xl border border-[--color-outline-variant] focus:border-[--color-primary] focus:ring-2 focus:ring-[--color-primary]/20 bg-[--color-surface-container-lowest] text-[--color-on-surface] transition-all outline-none"
+                  className="w-full h-12 px-4 rounded-2xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 bg-surface-container-lowest text-on-surface transition-all outline-none"
                 />
               </div>
               <div className="flex-1 space-y-1">
                 <label
                   htmlFor="length"
-                  className="text-sm font-semibold leading-5 text-[--color-on-surface-variant]"
+                  className="text-sm font-semibold leading-5 text-on-surface-variant"
                 >
                   Length / Boy (m)
                 </label>
@@ -237,13 +237,13 @@ export default function UserPage() {
                   step={0.5}
                   value={length}
                   onChange={(e) => setLength(e.target.value)}
-                  className="w-full h-12 px-4 rounded-2xl border border-[--color-outline-variant] focus:border-[--color-primary] focus:ring-2 focus:ring-[--color-primary]/20 bg-[--color-surface-container-lowest] text-[--color-on-surface] transition-all outline-none"
+                  className="w-full h-12 px-4 rounded-2xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 bg-surface-container-lowest text-on-surface transition-all outline-none"
                 />
               </div>
             </div>
 
             {/* Dynamic Area Badge */}
-            <div className="flex items-center gap-2 text-[--color-primary]">
+            <div className="flex items-center gap-2 text-primary">
               <span className="material-symbols-outlined text-xl">
                 square_foot
               </span>
@@ -255,7 +255,7 @@ export default function UserPage() {
 
             {/* Feature Chips */}
             <div className="pt-2">
-              <p className="text-sm font-semibold leading-5 text-[--color-on-surface-variant] mb-2">
+              <p className="text-sm font-semibold leading-5 text-on-surface-variant mb-2">
                 Features
               </p>
               <div className="flex flex-wrap gap-2">
@@ -268,8 +268,8 @@ export default function UserPage() {
                       aria-pressed={active}
                       className={`px-4 py-2 rounded-full border text-sm font-semibold leading-5 transition-colors ${
                         active
-                          ? "border-[--color-primary]/20 bg-[--color-primary]/10 text-[--color-primary]"
-                          : "border-[--color-outline-variant] bg-[--color-surface-container-lowest] text-[--color-on-surface-variant] hover:bg-[--color-surface-variant]"
+                          ? "border-primary/20 bg-primary/10 text-primary"
+                          : "border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-variant"
                       }`}
                     >
                       {f}
@@ -280,11 +280,11 @@ export default function UserPage() {
             </div>
 
             {/* Location & Distance */}
-            <div className="pt-4 border-t border-[--color-outline-variant]/30 space-y-4">
+            <div className="pt-4 border-t border-outline-variant/30 space-y-4">
               <button
                 onClick={handleUseLocation}
                 disabled={locationStatus === "loading"}
-                className="w-full flex items-center justify-center gap-2 h-12 rounded-2xl border border-[--color-primary] text-[--color-primary] text-sm font-semibold leading-5 hover:bg-[--color-primary]/5 transition-colors disabled:opacity-60"
+                className="w-full flex items-center justify-center gap-2 h-12 rounded-2xl border border-primary text-primary text-sm font-semibold leading-5 hover:bg-primary/5 transition-colors disabled:opacity-60"
               >
                 <span className="material-symbols-outlined">
                   {locationStatus === "granted"
@@ -303,7 +303,7 @@ export default function UserPage() {
               </button>
 
               <div className="space-y-2">
-                <div className="flex justify-between text-sm font-semibold leading-5 text-[--color-on-surface-variant]">
+                <div className="flex justify-between text-sm font-semibold leading-5 text-on-surface-variant">
                   <label htmlFor="distance">Search Distance</label>
                   <span>
                     <span className="tabular-nums">{distance}</span> km
@@ -317,13 +317,13 @@ export default function UserPage() {
                   step={5}
                   value={distance}
                   onChange={(e) => setDistance(Number(e.target.value))}
-                  className="w-full h-2 bg-[--color-surface-variant] rounded-full appearance-none cursor-pointer"
+                  className="w-full h-2 bg-surface-variant rounded-full appearance-none cursor-pointer"
                 />
               </div>
             </div>
 
             {/* CTA */}
-            <button className="w-full h-12 mt-4 bg-[--color-secondary-container] text-[--color-on-secondary-container] text-lg font-bold rounded-2xl hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-sm">
+            <button className="w-full h-12 mt-4 bg-secondary-container text-on-secondary-container text-lg font-bold rounded-2xl hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-sm">
               <span className="material-symbols-outlined">search</span>
               Find Pergola Deals / Fiyatları Karşılaştır
             </button>
@@ -332,7 +332,7 @@ export default function UserPage() {
 
         {/* Results */}
         <section className="space-y-3">
-          <h3 className="text-2xl font-semibold leading-8 text-[--color-primary]">
+          <h3 className="text-2xl font-semibold leading-8 text-primary">
             Best Offers Near You
           </h3>
           <div className="space-y-4">
@@ -344,20 +344,20 @@ export default function UserPage() {
       </main>
 
       {/* ── BottomNavBar ─────────────────────────────────────────────────── */}
-      <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-[--color-surface] shadow-[0_-4px_20px_rgba(0,52,65,0.05)] rounded-t-xl">
-        <button className="flex flex-col items-center justify-center bg-[--color-secondary-container] text-[--color-on-secondary-container] rounded-full px-4 py-1 hover:bg-[--color-surface-container-high] transition-colors active:scale-95 duration-200">
+      <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface shadow-[0_-4px_20px_rgba(0,52,65,0.05)] rounded-t-xl">
+        <button className="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
           <span
-            className="material-symbols-outlined text-sm font-semibold text-[--color-primary]"
+            className="material-symbols-outlined text-sm font-semibold text-primary"
             style={{ fontVariationSettings: "'FILL' 1" }}
           >
             search
           </span>
-          <span className="text-sm font-semibold leading-5 text-[--color-primary] mt-1">
+          <span className="text-sm font-semibold leading-5 text-primary mt-1">
             Search
           </span>
         </button>
 
-        <button className="flex flex-col items-center justify-center text-[--color-on-surface-variant] hover:bg-[--color-surface-container-high] transition-colors active:scale-95 duration-200 px-4 py-1 rounded-full">
+        <button className="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-200 px-4 py-1 rounded-full">
           <span className="material-symbols-outlined text-sm font-semibold">
             request_quote
           </span>
@@ -366,7 +366,7 @@ export default function UserPage() {
           </span>
         </button>
 
-        <button className="flex flex-col items-center justify-center text-[--color-on-surface-variant] hover:bg-[--color-surface-container-high] transition-colors active:scale-95 duration-200 px-4 py-1 rounded-full">
+        <button className="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-200 px-4 py-1 rounded-full">
           <span className="material-symbols-outlined text-sm font-semibold">
             person
           </span>
