@@ -1,52 +1,19 @@
-import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Supabase oturum yenileme proxy fonksiyonu.
- * Next.js 16+ "proxy" dosya kuralını kullanır (eski adı: middleware).
- * Korunan rotaları burada tanımlayın.
+ * Proxy / Middleware — Next.js 16+
+ *
+ * MVP aşaması: Auth guard devre dışı.
+ * Supabase entegrasyonu tamamlandığında aşağıdaki bloğu aktif edin:
+ *
+ *   import { createServerClient } from "@supabase/ssr";
+ *   const supabase = createServerClient(url, key, { cookies: ... });
+ *   const { data: { user } } = await supabase.auth.getUser();
+ *   if (isProtected && !user) redirect("/login");
  */
 export async function proxy(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({ request });
-
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
-          );
-          supabaseResponse = NextResponse.next({ request });
-          cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
-          );
-        },
-      },
-    }
-  );
-
-  // Oturumu taze tut — bu satırı silmeyin.
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  // Korunan rotalar: /company ve /admin sadece oturum açmış kullanıcılara açık.
-  const { pathname } = request.nextUrl;
-  const protectedPaths = ["/company", "/admin"];
-  const isProtected = protectedPaths.some((p) => pathname.startsWith(p));
-
-  if (isProtected && !user) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/";
-    return NextResponse.redirect(url);
-  }
-
-  return supabaseResponse;
+  // Şimdilik tüm rotalar serbestçe erişilebilir.
+  return NextResponse.next({ request });
 }
 
 export const config = {
